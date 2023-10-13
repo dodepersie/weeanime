@@ -3,7 +3,7 @@ import Header from "@/components/AnimeList/Header";
 
 const Page = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=4&filter=bypopularity`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=4`
   );
   const topAnimePopularity = await response.json();
 
@@ -16,15 +16,15 @@ const Page = async () => {
     <>
       <section id="topAnime" className="space-y-3">
         <Header
-          title="Anime Populer 🔥"
-          linkHref="/populer"
-          linkTitle="Lihat semua"
+          title="Top Anime 🔥"
+          linkHref="/top"
+          linkTitle="See all"
         />
         <AnimeList api={topAnimePopularity} />
       </section>
 
-      <section id="recommendationAnime" className="space-y-3">
-        <Header title="Rekomendasi Anime 🔥" />
+      <section id="favoriteAnime" className="space-y-3">
+        <Header title="Favorite Anime 🔥" />
         <AnimeList api={topAnimeFavorite} />
       </section>
     </>

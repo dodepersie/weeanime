@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Gabarito } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const gabarito = Gabarito({ subsets: ["latin"] });
 
@@ -15,7 +16,10 @@ export default function RootLayout({ children }) {
       <body className={gabarito.className}>
         <div className="container mx-auto max-w-[600px] p-4 space-y-4">
           <Navbar />
-          <div className="space-y-10 py-4 px-0 md:px-3">{children}</div>
+          <main className="space-y-4 py-2 px-0 md:px-3">
+            {children}
+            <Footer />
+          </main>
         </div>
       </body>
     </html>

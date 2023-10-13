@@ -26,7 +26,7 @@ const InputSearch = () => {
   return (
     <div className="join w-full md:w-60">
       <input
-        placeholder="Cari anime.."
+        placeholder="Search anime.."
         className="input input-bordered join-item rounded-lg w-full max-w-xs focus:outline-none"
         value={inputValue}
         ref={searchRef}

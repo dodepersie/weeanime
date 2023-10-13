@@ -18,6 +18,7 @@ const AnimeList = ({ api }) => {
                     width={300}
                     height={300}
                     className="w-full max-h-64"
+                    loading="lazy"
                   />
                 </figure>
                 <div className="card-body">
