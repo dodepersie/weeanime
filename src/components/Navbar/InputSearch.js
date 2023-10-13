@@ -33,8 +33,8 @@ const InputSearch = () => {
         onChange={handleInputChange}
         onKeyDown={handleSearch}
       />
-      <button className="btn btn-secondary join-item" onClick={handleSearch}>
-        <MagnifyingGlass size={24} />
+      <button className="btn btn-secondary join-item" onClick={handleSearch} aria-label="search-button">
+        <MagnifyingGlass size={20} />
       </button>
     </div>
   );

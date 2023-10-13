@@ -62,14 +62,20 @@ const AnimeBody = ({
           <p className="leading-relaxed">{synopsis}</p>
         </div>
 
-        <div className="space-y-3">
-          <h1 className="text-xl border-b-2 py-2">Background:</h1>
-          <p className="leading-relaxed">{background}</p>
-        </div>
+        {background ? (
+          <div className="space-y-3">
+            <h1 className="text-xl border-b-2 py-2">Background:</h1>
+            <p className="leading-relaxed">{background}</p>
+          </div>
+        ) : null}
 
         <div>
-          <Link href={url} target="_blank" className="underline hover:text-indigo-400">
-            More info from MyAnimeList..
+          <Link
+            href={url}
+            target="_blank"
+            className="underline hover:text-indigo-400"
+          >
+            More information from MyAnimeList..
           </Link>
         </div>
       </article>
