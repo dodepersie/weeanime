@@ -24,10 +24,10 @@ const AnimeBody = ({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-        <div className="col-span-5">
+        <div className="md:col-span-5">
           <InfoBox title="Duration" data={duration} />
         </div>
-        <div className="col-span-7">
+        <div className="md:col-span-7">
           <InfoBox title="Rating" data={rating} />
         </div>
       </div>
