@@ -6,11 +6,42 @@ import Footer from "@/components/Footer";
 const gabarito = Gabarito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "WeeAnime",
-  description: "Dapatkan informasi Anime terbaru",
+  title: {
+    default: "WeeAnime",
+    template: "WeeAnime: %s",
+  },
+  description: "See all Anime information for FREE and EASY!",
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Anime', 'Information', 'Anime Information'],
+  authors: { name: 'Mahadi Saputra', url: 'https://mahadisaputra.my.id' },
+  creator: "Mahadi Saputra",
   manifest: "./manifest.json",
   icons: { apple: '/icon.png' },
   themeColor: "#fff",
+  openGraph: {
+    title: {
+      default: "WeeAnime",
+      template: "WeeAnime: %s",
+    },
+    description: 'See all Anime information for FREE and EASY!',
+    url: 'https://weeanime.vercel.app/',
+    siteName: 'WeeAnime',
+    images: [
+      {
+        url: '/icon-256x256.png',
+        width: 256,
+        height: 256,
+      },
+      {
+        url: '/icon-512x512.png',
+        width: 512,
+        height: 512,
+        alt: 'WeeAnime',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {

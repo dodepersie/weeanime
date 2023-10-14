@@ -6,14 +6,18 @@ import { Fire } from "@phosphor-icons/react";
 
 const Navbar = () => {
   return (
-    <navbar className="flex flex-wrap gap-3 justify-between items-center bg-base-200 shadow-sm rounded-xl px-4 py-3">
-      <h1 className="text-base-content text-xl tracking-wide font-bold">
-        <Link href="/" className="flex items-center gap-0.5">
-          ー WeeAnime <Fire size={30} />
+    <navbar className="navbar bg-base-200 shadow-sm rounded-xl">
+      <div className="navbar-start">
+        <Link
+          href="/"
+          className="btn btn-ghost normal-case text-xl flex items-center gap-0.5"
+        >
+          WeeAnime <Fire size={30} />
         </Link>
-      </h1>
-
-      <InputSearch />
+      </div>
+      <div className="navbar-end">
+        <InputSearch />
+      </div>
     </navbar>
   );
 };

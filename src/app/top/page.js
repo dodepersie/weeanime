@@ -2,6 +2,10 @@ import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
 import Pagination from "@/components/Pagination";
 
+export const metadata = {
+  title: "Top Anime",
+}
+
 const response = await fetch(
   `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`
 );

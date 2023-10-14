@@ -24,16 +24,20 @@ const InputSearch = () => {
   };
 
   return (
-    <div className="join w-full md:w-60">
+    <div className="join">
       <input
-        placeholder="Search anime.."
+        placeholder="Search.."
         className="input input-bordered join-item rounded-lg w-full max-w-xs focus:outline-none"
         value={inputValue}
         ref={searchRef}
         onChange={handleInputChange}
         onKeyDown={handleSearch}
       />
-      <button className="btn btn-secondary join-item" onClick={handleSearch} aria-label="search-button">
+      <button
+        className="btn btn-secondary join-item"
+        onClick={handleSearch}
+        aria-label="search-button"
+      >
         <MagnifyingGlass size={20} />
       </button>
     </div>

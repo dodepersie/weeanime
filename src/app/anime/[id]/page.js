@@ -1,6 +1,24 @@
 import AnimeBody from "@/components/AnimeBody";
 import Header from "@/components/AnimeList/Header";
 
+export async function generateMetadata({ params }) {
+  // fetch data
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${params.id}/full`
+  );
+  const animeInfo = await response.json();
+  const showInfo = animeInfo.data;
+
+  return {
+    title: showInfo.title,
+    description: showInfo.background,
+    openGraph: {
+      title: showInfo.title,
+      description: showInfo.background,
+    }
+  };
+}
+
 const Page = async ({ params }) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${params.id}/full`
