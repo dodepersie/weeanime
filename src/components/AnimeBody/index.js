@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import InfoBox from "./InfoBox";
 
 const AnimeBody = ({
   title,
@@ -16,24 +17,18 @@ const AnimeBody = ({
 }) => {
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-center font-bold">
-        <div className="bg-base-200 rounded-lg p-2">
-          <p>Score: {score}</p>
-        </div>
-        <div className="bg-base-200 rounded-lg p-2">
-          <p>Rank: #{rank}</p>
-        </div>
-        <div className="bg-base-200 rounded-lg p-2">
-          <p>Popularity: #{popularity}</p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <InfoBox title="Score" data={score} />
+        <InfoBox title="Rank" data={`#${rank}`} />
+        <InfoBox title="Popularity" data={`#${popularity}`} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-center font-bold">
-        <div className="bg-base-200 rounded-lg p-2">
-          <p>{duration}</p>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+        <div className="col-span-5">
+          <InfoBox title="Duration" data={duration} />
         </div>
-        <div className="bg-base-200 rounded-lg p-2">
-          <p>{rating}</p>
+        <div className="col-span-7">
+          <InfoBox title="Rating" data={rating} />
         </div>
       </div>
 
@@ -43,7 +38,7 @@ const AnimeBody = ({
           width={300}
           height={300}
           alt={title}
-          loading="lazy"
+          priority
           className="w-full max-h-full object-cover"
         />
         <iframe
@@ -58,16 +53,26 @@ const AnimeBody = ({
 
       <article className="space-y-4">
         <div className="space-y-3">
-          <h1 className="text-xl border-b-2 py-2">Synopsis:</h1>
-          <p className="leading-relaxed">{synopsis}</p>
+          <h1 className="text-xl border-b-2 py-2">Synopsis</h1>
+          {synopsis ? (
+            <p className="leading-relaxed">{synopsis}</p>
+          ) : (
+            <p className="leading-relaxed">
+              No synopsis information has been added to this title.
+            </p>
+          )}
         </div>
 
-        {background ? (
-          <div className="space-y-3">
-            <h1 className="text-xl border-b-2 py-2">Background:</h1>
+        <div className="space-y-3">
+          <h1 className="text-xl border-b-2 py-2">Background</h1>
+          {background ? (
             <p className="leading-relaxed">{background}</p>
-          </div>
-        ) : null}
+          ) : (
+            <p className="leading-relaxed">
+              No background information has been added to this title.
+            </p>
+          )}
+        </div>
 
         <div>
           <Link

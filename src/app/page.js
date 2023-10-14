@@ -16,7 +16,7 @@ const Page = async () => {
     <>
       <section id="topAnime" className="space-y-3">
         <Header
-          title="Top Anime 🔥"
+          title="Top Anime"
           linkHref="/top"
           linkTitle="See all"
         />
@@ -24,7 +24,7 @@ const Page = async () => {
       </section>
 
       <section id="favoriteAnime" className="space-y-3">
-        <Header title="Favorite Anime 🔥" />
+        <Header title="Favorite Anime" />
         <AnimeList api={topAnimeFavorite} />
       </section>
     </>

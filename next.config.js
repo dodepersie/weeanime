@@ -1,12 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                hostname: "cdn.myanimelist.net",
-            }
-        ]
-    }
-}
+const withPWA = require("next-pwa")({
+  dest: "public",
+  require: true,
+  skipWaiting: true,
+});
 
-module.exports = nextConfig
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        hostname: "cdn.myanimelist.net",
+      },
+    ],
+  },
+};
+
+module.exports = nextConfig;

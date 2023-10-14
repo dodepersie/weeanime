@@ -18,6 +18,9 @@ const Page = async ({ params }) => {
               : showInfo.title
           }
         />
+
+        <div className="border-b-2"></div>
+
         <AnimeBody
           title={showInfo.title}
           image={showInfo.images.webp.large_image_url}
