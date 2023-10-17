@@ -6,7 +6,7 @@ import Link from "next/link";
 const AnimeList = ({ api }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {api.data.map((anime) => {
+      {api.data?.map((anime) => {
         return (
           <div key={anime.mal_id}>
             <Link href={`/anime/${anime.mal_id}`}>
