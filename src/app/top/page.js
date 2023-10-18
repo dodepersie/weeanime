@@ -32,6 +32,7 @@ const Page = () => {
           page={page}
           lastPage={topAnime.pagination?.last_visible_page}
           setPage={setPage}
+          pageLimit={5}
         />
       </div>
     </div>

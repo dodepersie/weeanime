@@ -1,8 +1,8 @@
 const InfoBox = ({ title, data }) => {
   return (
-    <div className="bg-base-200 border-2 border-base-300 rounded-lg p-2">
-      <p className="text-center font-bold">
-        {title}: {data}
+    <div className="btn btn-block btn-sm md:btn-lg btn-secondary cursor-default">
+      <p className="text-sm">
+        {title} {data}
       </p>
     </div>
   );

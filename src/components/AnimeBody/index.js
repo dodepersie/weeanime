@@ -17,39 +17,35 @@ const AnimeBody = ({
 }) => {
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <InfoBox title="Score" data={score} />
-        <InfoBox title="Rank" data={`#${rank}`} />
-        <InfoBox title="Popularity" data={`#${popularity}`} />
+      <div className="grid md:grid-cols-12 items-center gap-3">
+        <div className="md:col-span-6">
+          <Image
+            src={image}
+            width="500"
+            height="500"
+            alt={title}
+            className="brightness-75 rounded-lg border-2 border-secondary transition-all hover:brightness-100"
+          />
+        </div>
+
+        <div className="items-center md:col-span-6 space-y-3">
+          <InfoBox title="Score:" data={score} />
+          <InfoBox title="Rank:" data={`#${rank}`} />
+          <InfoBox title="Popularity:" data={`#${popularity}`} />
+          <InfoBox title="Duration:" data={duration} />
+          <InfoBox data={rating} />
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-        <div className="md:col-span-5">
-          <InfoBox title="Duration" data={duration} />
-        </div>
-        <div className="md:col-span-7">
-          <InfoBox title="Rating" data={rating} />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-3">
-        <Image
-          src={image}
-          width={300}
-          height={300}
-          alt={title}
-          priority
-          className="w-full max-h-full object-cover"
-        />
-        <iframe
-          width="100%"
-          height="315"
-          src={`https://www.youtube.com/embed/${ytId}`}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-      </div>
+      <iframe
+        width="100%"
+        height="315"
+        src={`https://www.youtube.com/embed/${ytId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="rounded-lg border-2 border-secondary shadow-md shadow-secondary/80"
+      ></iframe>
 
       <article className="space-y-4">
         <div className="space-y-3">
@@ -76,7 +72,7 @@ const AnimeBody = ({
 
         <div>
           <Link
-            href={url}
+            href={`${url}`}
             target="_blank"
             className="underline hover:text-indigo-400"
           >

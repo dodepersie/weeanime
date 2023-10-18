@@ -19,17 +19,17 @@ const Pagination = ({ page, lastPage, setPage }) => {
   };
 
   return (
-    <div class="join">
+    <div className="join">
       {page === 1 ? null : (
-        <button class="join-item btn" onClick={handlePrevPage}>
+        <button className="join-item btn" onClick={handlePrevPage}>
           «
         </button>
       )}
-      <button class="join-item btn btn-secondary">
+      <button className="join-item btn btn-active cursor-default">
         {page} / {lastPage}
       </button>
       {page < lastPage && (
-        <button class="join-item btn" onClick={handleNextPage}>
+        <button className="join-item btn" onClick={handleNextPage}>
           »
         </button>
       )}

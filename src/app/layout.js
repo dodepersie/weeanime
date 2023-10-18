@@ -18,30 +18,6 @@ export const metadata = {
   manifest: "./manifest.json",
   icons: { apple: '/icon.png' },
   themeColor: "#fff",
-  openGraph: {
-    title: {
-      default: "WeeAnime",
-      template: "WeeAnime: %s",
-    },
-    description: 'See all Anime information for FREE and EASY!',
-    url: 'https://weeanime.vercel.app/',
-    siteName: 'WeeAnime',
-    images: [
-      {
-        url: '/icon-256x256.png',
-        width: 256,
-        height: 256,
-      },
-      {
-        url: '/icon-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'WeeAnime',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
 };
 
 export default function RootLayout({ children }) {
