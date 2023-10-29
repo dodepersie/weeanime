@@ -10,13 +10,14 @@ const Page = async () => {
     "entry"
   );
 
-  function getRandomItems(arr, numItems) {
-    const shuffled = arr.slice().sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, numItems);
+  function getRandomAnime(arr, numItems) {
+    const randomAnime = [];
+    while (randomAnime.length < numItems) {
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      randomAnime.push(arr[randomIndex]);
+    }
+    return { data: randomAnime };
   }
-
-  let randomAnime = getRandomItems(recommendationAnime, 4);
-  randomAnime = { data: randomAnime };
 
   return (
     <>
@@ -27,7 +28,7 @@ const Page = async () => {
 
       <section id="recommendationAnime" className="space-y-3">
         <Header title="Recommendation Anime" />
-        <AnimeList api={randomAnime} />
+        <AnimeList api={getRandomAnime(recommendationAnime, 4)} />
       </section>
     </>
   );
