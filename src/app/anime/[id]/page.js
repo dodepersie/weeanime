@@ -1,30 +1,25 @@
 import AnimeBody from "@/components/AnimeBody";
 import Header from "@/components/AnimeList/Header";
+import { getAnimeResponse } from "@/libs/api-libs";
 
 export async function generateMetadata({ params }) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${params.id}/full`
-  );
-  const animeInfo = await response.json();
-  const showInfo = animeInfo.data;
+  let showInfo = await getAnimeResponse(`anime/${params.id}/full`);
+  showInfo = showInfo.data;
 
   return {
     title: showInfo?.title,
     description: showInfo?.background,
-    metadataBase: new URL('https://weeanime.vercel.app/'),
+    metadataBase: new URL("https://weeanime.vercel.app/"),
     openGraph: {
       title: showInfo?.title,
       description: showInfo?.background,
-    }
+    },
   };
 }
 
 const Page = async ({ params }) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${params.id}/full`
-  );
-  const animeInfo = await response.json();
-  const showInfo = animeInfo.data;
+  let showInfo = await getAnimeResponse(`anime/${params.id}/full`);
+  showInfo = showInfo.data;
 
   return (
     <div>

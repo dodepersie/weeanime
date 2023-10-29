@@ -3,6 +3,7 @@
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
 import Pagination from "@/components/Pagination";
+import { getAnimeResponse } from "@/libs/api-libs";
 import { useEffect, useState } from "react";
 
 const Page = () => {
@@ -14,6 +15,8 @@ const Page = () => {
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}&limit=10`
     );
     const data = await response.json();
+
+    // const data = await getAnimeResponse("top/anime", `?page=${page}&limit=10`);
     setTopAnime(data);
   };
 
