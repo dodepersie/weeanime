@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import InfoBox from "./InfoBox";
+import VideoPlayer from "./../Utilities/VideoPlayer"
 
 const AnimeBody = ({
   title,
@@ -37,15 +38,7 @@ const AnimeBody = ({
         </div>
       </div>
 
-      <iframe
-        width="100%"
-        height="315"
-        src={`https://www.youtube.com/embed/${ytId}`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="rounded-lg border-2 border-secondary shadow-md shadow-secondary/80"
-      ></iframe>
+      <VideoPlayer ytId={ytId} />
 
       <article className="space-y-4">
         <div className="space-y-3">

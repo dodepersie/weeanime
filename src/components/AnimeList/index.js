@@ -6,9 +6,9 @@ import Link from "next/link";
 const AnimeList = ({ api }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {api.data?.map((anime) => {
+      {api.data?.map((anime, index) => {
         return (
-          <div key={anime.mal_id}>
+          <div key={index}>
             <Link href={`/anime/${anime.mal_id}`}>
               <div className="card bg-base-100 shadow-lg image-full transition-all hover:-translate-y-1">
                 <figure>

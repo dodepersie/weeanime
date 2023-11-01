@@ -1,23 +1,21 @@
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
-import { getAnimeResponse, getNestedAnimeResponse } from "@/libs/api-libs";
+import {
+  getAnimeResponse,
+  getNestedAnimeResponse,
+  reproduce,
+} from "@/libs/api-libs";
 
 const Page = async () => {
+  // Top Anime
   const topAnime = await getAnimeResponse("top/anime", "limit=4");
 
+  // Randomize Recommendation Anime
   let recommendationAnime = await getNestedAnimeResponse(
     "recommendations/anime",
     "entry"
   );
-
-  function getRandomAnime(arr, numItems) {
-    const randomAnime = [];
-    while (randomAnime.length < numItems) {
-      const randomIndex = Math.floor(Math.random() * arr.length);
-      randomAnime.push(arr[randomIndex]);
-    }
-    return { data: randomAnime };
-  }
+  recommendationAnime = reproduce(recommendationAnime, 4);
 
   return (
     <>
@@ -28,7 +26,7 @@ const Page = async () => {
 
       <section id="recommendationAnime" className="space-y-3">
         <Header title="Recommendation Anime" />
-        <AnimeList api={getRandomAnime(recommendationAnime, 4)} />
+        <AnimeList api={recommendationAnime} />
       </section>
     </>
   );
